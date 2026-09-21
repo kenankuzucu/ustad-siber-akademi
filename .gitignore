@@ -1,0 +1,13 @@
+# Geçici / test dosyaları
+_t.html
+_test.html
+_cam.html
+*.tmp
+*.bak
+~$*
+
+# Yerel notlar (yayına girmesin)
+.sirlar/
+*.key
+*.pem
+.env

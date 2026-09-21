@@ -1,0 +1,76 @@
+ÜSTAD SİBER AKADEMİ — ŞİMDİ YAPILAMAYANLAR (saklandı: Kali veya sunucu alınca yapılır)
+=====================================================================================
+Kaynak: USTAD_SIBER_AKADEMI_Tam_Proje_Master_Listesi.docx (144 kalem)
+Bu dosya, bu makinede (Windows + tarayıcı) yapılamayan kalemlerin defteridir.
+Kali sanal makineyi açar veya hosting/veritabanı alırsak tek tek buradan yaparız.
+
+-------------------------------------------------------------------------------------
+A) SUNUCU + VERİTABANI GEREKENLER (hosting/cPanel ya da VPS alınınca)
+-------------------------------------------------------------------------------------
+  6) Kayıt, giriş, şifre sıfırlama ve e-posta doğrulama
+     Gerekli: PHP+MySQL (cPanel) · SMTP/e-posta servisi · oturum yönetimi
+     Not: şu an tek kullanıcılı yerel sürüm var (tarayıcıda saklanıyor).
+
+ 57) QR kodlu online sertifika doğrulama
+     Gerekli: herkese açık doğrulama sayfası + veritabanı
+     Not: sertifika + doğrulama kodu üretimi ŞU AN ÇALIŞIYOR; eksik olan
+          "başkası QR'ı okutup doğrulasın" kısmı.
+
+ 70) Canlı Eğitim Odası
+ 71) Eğitmen canlı ders açsın, öğrenci katılsın, soru sorsun, mini sınav
+     Gerekli: WebSocket/sesli yayın altyapısı (VPS) veya harici servis
+
+ 72) Öğrenci–Mentor sistemi          →  Sunucu: kullanıcı hesapları + mesajlaşma
+ 73) Takım görevleri (ekip senaryosu) →  Sunucu: çok kullanıcılı senkron
+ 74) Siber turnuvalar / CTF-SOC turnuvası / bilgi yarışması
+     →  Sunucu: canlı skor tablosu, eşzamanlı kullanıcı
+
+ 82) Mezunlar Ağı                    →  Sunucu: üyelik + profil dizini
+ 83) Eğitmen paneli + eğitmen analitik
+ 84) Yönetici paneli
+ 85) Öğrenci/eğitmen/kurs/soru/sınav/lab/CTF/rozet/sertifika/AI/içerik yönetimi
+     →  Sunucu: roller, yetkilendirme, yönetim ekranları
+
+ 89) Authentication + rol bazlı yetkilendirme + 2FA
+ 90) Rate limiting, input validation, session, API ve parola güvenliği
+ 91) Audit Log, backup ve veri bütünlüğü
+     →  Sunucu: hepsi sunucu tarafı güvenlik katmanı
+
+ 79) Siber Haber Laboratuvarı (güncel haberden senaryo üretme)
+     →  SUNUCU/KISMI: internetten haber çekme kısmı sunucu ister;
+        şu an çevrimdışı haber senaryoları yapılabilir.
+
+-------------------------------------------------------------------------------------
+B) KALİ / İZOLE LABORATUVAR GEREKENLER (sanal makineyi açınca)
+-------------------------------------------------------------------------------------
+ 35) Güvenli ve izole sanal terminal / sandbox
+     Gerekli: Kali VM (SSH köprüsü) veya tarayıcı içi WebAssembly Linux
+     Not: gerçek komut çalıştırma bu makinede açılmaz — güvenlik gereği.
+          Şu an: gerçek çıktılı komut simülasyonu + 782 gerçek Kali komutu kütüphanesi.
+
+ 36) 6 laboratuvar (Network, Linux, Web, Log Analysis, SOC, Adli Bilişim)
+     →  KISMI: senaryo, hedef, adım adım görev, beklenen çıktı, puan ŞU AN YAPILABİLİR;
+        gerçek makinede uygulama Kali ile.
+
+ 37) CTF Arena (gerçek flag doğrulama, canlı skor)
+     →  KISMI: görev/flag/puan yapısı yerel yapılabilir; gerçek hedef makine
+        ve çok kullanıcılı skor Kali + sunucu ister.
+
+127) Sertifika doğrulama, AI önerileri, laboratuvar izolasyonu, CTF izolasyonu,
+     API ve veritabanı güvenliği testleri
+     →  KALİ + SUNUCU: sızma testi araçları (nmap, burp, sqlmap, metasploit)
+        ve gerçek hedef ortam gerekir. (Yasal: yalnız kendi sistemimiz.)
+
+-------------------------------------------------------------------------------------
+C) KARAR BEKLEYENLER (Kenan'ın seçimi gerekiyor)
+-------------------------------------------------------------------------------------
+  • Giriş kapısı şifresi (şifreli perde) — şifreyi Kenan belirleyecek,
+    kod sohbete yazılmayacak. Takıldığında: SHA-256 + 5 hata → 60 sn kilit.
+  • AI modu: (a) çevrimdışı kural motoru  (b) kendi API anahtarınla canlı AI
+    (c) Kali'de çalışan yerel model köprüsü. Şu an (a) hazır.
+  • Çok kullanıcılı sürüm için: cPanel'de MySQL var mı? (yoksa VPS)
+  • Hosting: ustadcyber.com.tr alt klasörü mü, yeni alan adı mı?
+
+-------------------------------------------------------------------------------------
+NOT: Bu listede olmayan bütün kalemler bu makinede YAPILIR ve yapıldıkça
+     KONU-TAKIP-144.txt dosyasında işaretlenir.

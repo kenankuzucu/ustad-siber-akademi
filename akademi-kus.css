@@ -1,0 +1,162 @@
+/* ==========================================================================
+   ÜSTAD AKADEMİ — SİBER KUŞLAR (akademi-kus.css)  ·  PROFESYONEL SÜRÜM
+   Ağacın sağında/solunda birbirine bakan 2 gerçekçi kuş. Kanat çırpma, kuyruk
+   salınımı, gövde salınımı + neon ışıltılı "KALİ" / "ÜSTAD" etiketleri.
+   ========================================================================== */
+
+.siberKus {
+  position: absolute; top: 34px;
+  z-index: 12; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center;
+  will-change: transform;
+}
+
+/* sol kuş: KALİ — sağa (ağaca) bakar */
+.kusSol {
+  left: 14px;
+  animation: siberUcusSol 5.2s ease-in-out infinite alternate;
+}
+
+/* sağ kuş: ÜSTAD — sola (ağaca) bakar (aynalı) */
+.kusSag {
+  right: 14px;
+  transform: scaleX(-1);
+  animation: siberUcusSag 5.8s ease-in-out infinite alternate;
+}
+.kusSag .kusEtiket { transform: scaleX(-1); }
+
+/* --- isim etiketleri --- */
+.kusEtiket {
+  font-family: var(--ze-mono);
+  font-size: 10px; font-weight: 900;
+  letter-spacing: .1em;
+  padding: 2px 8px; border-radius: 7px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  animation: etiketNefes 2.6s ease-in-out infinite;
+}
+.kalEtiket {
+  color: #8ff8ff;
+  background: linear-gradient(180deg, rgba(0,240,255,.22), rgba(0,240,255,.08));
+  border: 1px solid rgba(0,240,255,.75);
+  box-shadow: 0 0 12px rgba(0,240,255,.55), inset 0 0 8px rgba(0,240,255,.25);
+  text-shadow: 0 0 9px rgba(0,240,255,1);
+}
+.ustEtiket {
+  color: #ffe57a;
+  background: linear-gradient(180deg, rgba(255,215,0,.22), rgba(255,215,0,.08));
+  border: 1px solid rgba(255,215,0,.75);
+  box-shadow: 0 0 12px rgba(255,215,0,.55), inset 0 0 8px rgba(255,215,0,.25);
+  text-shadow: 0 0 9px rgba(255,215,0,1);
+}
+
+/* --- kuş gövdesi ve parlaması --- */
+.kusSvg { overflow: visible; }
+.kusSol .kusSvg { filter: drop-shadow(0 0 9px rgba(0,229,255,.85)); }
+.kusSag .kusSvg { filter: drop-shadow(0 0 9px rgba(255,196,0,.85)); }
+
+/* gövde + kafa */
+.kusGovde { fill: url(#govdeK); }
+.kusSag .kusGovde { fill: url(#govdeU); }
+
+/* taç */
+.kusTac { fill: url(#kanatK); }
+.kusSag .kusTac { fill: url(#kanatU); }
+
+/* gaga */
+.kusGaga    { fill: #ffb020; }
+.kusGagaAlt { fill: #e08a10; }
+.kusSol .kusGaga    { fill: #ffd166; }
+.kusSol .kusGagaAlt { fill: #d9a441; }
+
+/* göz + ışık */
+.kusGoz     { fill: #0b1c22; }
+.kusGozIsik { fill: #ffffff; }
+
+/* kuyruk */
+.kusKuyruk { fill: url(#kuyrukK); opacity: .92; }
+.kusSag .kusKuyruk { fill: url(#kuyrukU); }
+
+/* kanat katmanları */
+.kusKanat1 { fill: url(#kanatK); }
+.kusKanat2 { fill: url(#govdeK); opacity: .92; }
+.kusKanat3 { fill: url(#kanatK); opacity: .85; }
+.kusSag .kusKanat1 { fill: url(#kanatU); }
+.kusSag .kusKanat2 { fill: url(#govdeU); opacity: .92; }
+.kusSag .kusKanat3 { fill: url(#kanatU); opacity: .85; }
+
+.kusKanatArka { fill: url(#kanatK); opacity: .58; }
+.kusSag .kusKanatArka { fill: url(#kanatU); }
+
+/* tüy dokusu çizgileri */
+.kusTuyCizgi {
+  fill: none; stroke: rgba(255,255,255,.45);
+  stroke-width: .8; stroke-linecap: round;
+}
+
+/* pençe */
+.kusPençe {
+  fill: none; stroke: #ffb020; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.kusSol .kusPençe { stroke: #ffd166; }
+
+/* --- kanat çırpma (omuz noktasından döner) --- */
+.kusKanat1, .kusKanat2, .kusKanat3 {
+  transform-box: view-box;
+  transform-origin: 62px 44px;
+  animation: kanatCirp .52s cubic-bezier(.45,.05,.55,.95) infinite alternate;
+}
+.kusKanat2 { animation-duration: .52s; animation-delay: -.06s; }
+.kusKanat3 { animation-duration: .52s; animation-delay: -.12s; }
+
+.kusKanatArka {
+  transform-box: view-box;
+  transform-origin: 58px 40px;
+  animation: kanatCirpArka .52s cubic-bezier(.45,.05,.55,.95) infinite alternate;
+}
+
+@keyframes kanatCirp {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(-32deg); }
+}
+@keyframes kanatCirpArka {
+  0%   { transform: rotate(4deg); }
+  100% { transform: rotate(-24deg); }
+}
+
+/* --- kuyruk salınımı --- */
+.kusKuyruk {
+  transform-box: view-box;
+  transform-origin: 46px 52px;
+  animation: kuyrukSal .9s ease-in-out infinite alternate;
+}
+@keyframes kuyrukSal {
+  0%   { transform: rotate(-3deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* --- etiket nefesi --- */
+@keyframes etiketNefes {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-1px) scale(1.04); }
+}
+.kusSag .kusEtiket {
+  animation: etiketNefesTers 2.6s ease-in-out infinite;
+}
+@keyframes etiketNefesTers {
+  0%, 100% { transform: scaleX(-1) translateY(0) scale(1); }
+  50%      { transform: scaleX(-1) translateY(-1px) scale(1.04); }
+}
+
+/* --- süzülme / havada salınma --- */
+@keyframes siberUcusSol {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  45%  { transform: translate(10px, -13px) rotate(2deg); }
+  100% { transform: translate(-5px, 5px) rotate(-2deg); }
+}
+@keyframes siberUcusSag {
+  0%   { transform: scaleX(-1) translate(0, 0) rotate(0deg); }
+  45%  { transform: scaleX(-1) translate(9px, -15px) rotate(2deg); }
+  100% { transform: scaleX(-1) translate(-6px, 6px) rotate(-2deg); }
+}

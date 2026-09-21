@@ -1,0 +1,31 @@
+{
+  "name": "ÜSTAD SİBER AKADEMİ",
+  "short_name": "ÜSTAD AKADEMİ",
+  "description": "Siber güvenlik eğitim ekosistemi — ön sınav, beceri ağacı, laboratuvar, CTF, sertifika.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#070d10",
+  "theme_color": "#2ee6a8",
+  "lang": "tr",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "foto/ikon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "foto/ikon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "education",
+    "security"
+  ]
+}

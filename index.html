@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÜSTAD AKADEMİ SİTESİ · Kenan Kuzucu</title>
+<meta name="description" content="ÜSTAD SİBER AKADEMİ — siber güvenlik eğitim ekosistemi. Ön sınav, beceri ağacı, adaptif sınav, yanlışlar defteri, sertifika ve portföy.">
+<meta name="theme-color" content="#2ee6a8">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ÜSTAD AKADEMİ">
+<link rel="icon" href="foto/rozet.png">
+<link rel="apple-touch-icon" href="foto/ikon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="akademi.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="canli.css">
+<link rel="stylesheet" href="akademi-studyo.css">
+<link rel="stylesheet" href="akademi-agac.css">
+<link rel="stylesheet" href="akademi-kus.css">
+<link rel="stylesheet" href="akademi-mufredat.css">
+<script>
+/* EN KÜÇÜK GİRİŞ GARANTİSİ: başka herhangi bir betik hata verse bile
+   "AKADEMİYE GİR" düğmesi her zaman çalışır. */
+window.GIR = function (hedef) {
+  try {
+    var g = document.getElementById('giris'); if (g) g.classList.add('gizli');
+    var y = document.getElementById('yuzenGir'); if (y) y.classList.add('gizli');
+    if (window.AKADEMI_AC) {
+      if (hedef && window.AK) { try { AK.yukle(); AK.kur(); AK.ac(); AK.git(hedef); } catch (e) {} }
+      else { try { AKADEMI_AC(); } catch (e) {} }
+    } else if (window.AK && AK.ac) {
+      try { AK.yukle(); AK.kur(); AK.ac(); if (hedef) AK.git(hedef); } catch (e) {}
+    }
+  } catch (e) {}
+};
+</script>
+</head>
+<body data-site="ustad-akademi">
+
+<canvas id="sahneTuval"></canvas>
+<div id="canliFon"></div>
+<div id="canliIzgara"></div>
+<div id="canliTarama"></div>
+<div id="canliBloom"></div>
+
+<!-- ============================ GİRİŞ EKRANI ============================== -->
+<div class="giris" id="giris">
+
+  <div class="girisUst">
+    <span class="girisMadalyon"><img src="foto/ustad-kenan.jpg" alt="Kenan Kuzucu"></span>
+    <div>
+      <div class="girisAd">ÜSTAD KENAN KUZUCU</div>
+      <div class="girisRol">Kurucu &amp; Eğitmen</div>
+    </div>
+    <div class="girisUstSag">
+      <span class="rozetMini" id="durum3D"><i class="canliNokta"></i>3D HAZIRLANIYOR</span>
+      <span class="rozetMini"><i class="canliNokta turuncu"></i><span class="saat" id="canliSaat">--:--:--</span></span>
+      <span class="rozetMini">SURUM v1.1</span>
+      <span class="rozetMini">144 KALEM</span>
+    </div>
+  </div>
+
+  <div class="brifing">
+
+    <div class="brifSol">
+      <div class="brifEtiket">// GÖREV BRİFİNGİ</div>
+      <div class="brifBaslik">ÜSTAD SİBER AKADEMİ</div>
+      <div class="brifSlogan">Bilgini Ölç &bull; Kendini Geliştir &bull; Siber Dünyada Yolunu Çiz</div>
+      <div class="brifFelsefe">“Herkes aynı yerden başlamaz. ÜSTAD SİBER AKADEMİ önce seni tanır,
+        sonra sana uygun yolu oluşturur.”</div>
+
+      <div class="brifEtiket" style="margin-top:18px">// NEDEN SİBER GÜVENLİK?</div>
+      <div style="font-size:13.4px;line-height:1.75;color:#d5e8e1;margin-top:6px">
+        Dünya dijitalleştikçe saldırı yüzeyi büyüyor; savunacak insan sayısı ise yetişmiyor.
+        Bu akademi seni <b>savunma tarafında</b> işe yarar hâle getirir: ağı okuyan, logu konuşturan,
+        olayı yöneten, raporu yazan taraf.
+      </div>
+
+      <div class="brifEtiket" style="margin-top:16px">// BU AKADEMİDE NE ÖĞRENECEKSİN?</div>
+      <ul class="brifMaddeler">
+        <li><b>12 alan:</b> Network · Linux · Python · Web Güvenliği · Blue Team · SOC ·
+            Kriptografi · Adli Bilişim · OSINT · Bulut Güvenliği · AI Güvenliği · CTF</li>
+        <li><b>Ölçme:</b> ön sınav ile seviye tespiti, adaptif sınav, “Bana Neden?” açıklamaları</li>
+        <li><b>Uygulama:</b> laboratuvar senaryoları, SOC alarmları, vaka dosyaları, karar ağaçları</li>
+        <li><b>Takip:</b> beceri ağacı, karne, yanlışlar defteri, aralıklı tekrar, 144 kalem takibi</li>
+        <li><b>Belge:</b> doğrulama kodlu sertifika, dijital kasa, transkript, cyber portföy</li>
+      </ul>
+
+      <div class="girisDugSira">
+        <button class="buyukDug" id="girDug" onclick="window.GIR &amp;&amp; window.GIR()">&#9876; AKADEMİYE GİR</button>
+        <button class="ikincilDug" id="hizliDug" onclick="window.GIR &amp;&amp; window.GIR('onsinav')">&#9201; &#214;N SINAVA G&#304;T</button>
+      </div>
+      <div class="girisAlt" id="girisAlt">
+        Bu site tek klasörde çalışır · çevrimdışı · verilerin bu cihazda saklanır · internet gerekmez
+      </div>
+    </div>
+
+    <div class="brifSag">
+      <div class="onizleme"><span class="simge">&#127894;&#65039;</span><b>ROZETLER</b>
+        <span>Rütbe, rozet, seri ve küçük başarı kutlamaları.</span></div>
+      <div class="onizleme"><span class="simge">&#129514;</span><b>LABORATUVARLAR</b>
+        <span>Ağ, Linux, Web, log analizi ve adli bilişim alıştırmaları.</span></div>
+      <div class="onizleme"><span class="simge">&#128681;</span><b>CTF GÖREVLERİ</b>
+        <span>Kategori, flag, puan ve seviye sistemi.</span></div>
+      <div class="onizleme"><span class="simge">&#127891;</span><b>SERTİFİKA</b>
+        <span>Şartı dolmadan verilmez; doğrulama kodlu.</span></div>
+    </div>
+  </div>
+
+  <div class="canliDurum" id="canliDurum"></div>
+  <div class="canliSerit"><div id="canliAkis"></div></div>
+
+  <button class="yuzenGir" id="yuzenGir" onclick="window.GIR &amp;&amp; window.GIR()">&#9876; AKADEM&#304;YE G&#304;R</button>
+
+
+  </div>
+
+<script src="three.min.js"></script>
+<script>if(typeof THREE==='undefined'){document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"><\/script>');}</script>
+<script src="sahne3d.js"></script>
+<script>
+/* SA → S3 UYARLAYICI: akademinin SA API'sini, eğitim sitesinin KANITLANMIŞ 3D motoruna
+   (S3) bağlar. Render kalitesi (antialias + pixelRatio + 26 sahne) eğitim sitesiyle AYNI. */
+window.SA = (function () {
+  var sahneler = ['kalkan', 'orgu', 'matris', 'radar', 'supernova']; // 1..5
+  function ad() {
+    var r = '';
+    try { if (window.S3 && S3.LISTE && S3.aktif) { var k = S3.aktif(); for (var i = 0; i < S3.LISTE.length; i++) if (S3.LISTE[i].k === k) r = S3.LISTE[i].ad; } } catch (e) {}
+    return r;
+  }
+  return {
+    AD: ['YEMİN', 'KAFES', 'VERİ NEHRİ', 'RADAR TARAMASI', 'SIFIR NOKTASI'],
+    dene: function (cb) {
+      var ok = false;
+      try {
+        if (window.S3 && window.THREE) {
+          ok = S3.baslat('sahneTuval', '#2bf0a0', '#e09a3f');   // canlı zümrüt + parlak bakır
+          if (ok) { S3.sec(sahneler[0]); S3.otoAc(false, 16); try { S3.ayar({ yogunluk: 1.3, hiz: 1.1 }); } catch (e) {} }
+        }
+      } catch (e) { ok = false; }
+      if (typeof cb === 'function') cb(ok);
+      return ok;
+    },
+    kapat: function () { try { if (window.S3) S3.acKapa(false); } catch (e) {} },
+    aktif: function () { return !!(window.S3 && S3.acikMi && S3.acikMi()); },
+    sec: function (n) { try { if (window.S3) S3.sec(sahneler[n - 1] || sahneler[0]); } catch (e) {} return true; },
+    rastgele: function () {
+      try { if (window.S3) S3.rastgele(); } catch (e) {}
+      var i = 0;
+      try { if (window.S3 && S3.LISTE && S3.aktif) { var k = S3.aktif(); for (var j = 0; j < S3.LISTE.length; j++) if (S3.LISTE[j].k === k) i = j; } } catch (e) {}
+      return i + 1;
+    },
+    otoDegistir: function () { try { if (window.S3) S3.otoAc(true, 16); } catch (e) {} return true; },
+    dokun: function () { try { if (window.S3) S3.rastgele(); } catch (e) {} },
+    soluk: function (a) { try { if (window.S3) S3.acKapa(!a); } catch (e) {} }
+  };
+})();
+</script>
+<script src="akademi-veri.js"></script>
+<script src="akademi.js"></script>
+<script src="akademi-kimlik.js"></script>
+<script src="akademi-beyin.js"></script>
+<script src="akademi-sinav.js"></script>
+<script src="akademi-proje.js"></script>
+<script src="akademi-gorev.js"></script>
+<script src="akademi-oyun.js"></script>
+<script src="akademi-lab.js"></script>
+<script src="akademi-mentor.js"></script>
+<script src="akademi-kariyer.js"></script>
+<script src="akademi-harita.js"></script>
+<script src="akademi-studyo.js"></script>
+<script src="akademi-agac.js"></script>
+<script src="akademi-kus.js"></script>
+<script src="akademi-mufredat.js"></script>
+<script>
+/* PWA: çevrimdışı çalışsın (88. madde) */
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('service-worker.js')['catch'](function () {});
+  });
+}
+</script>
+<script>
+(function () {
+  'use strict';
+  var calisti = false;
+
+  /* GEÇ ÇİZİM ONARIMI: çekirdek, eklenti modülleri yüklenmeden çizmiş olabilir;
+     burada tüm modüller hazır olduğu için ekran garanti altına alınır. */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      try {
+        if (!window.AK) return;
+        AK.kur();
+        var hedef = AK.sonModul || 'kimlik';
+        AK.git(AK.cizici[hedef] ? hedef : 'kimlik');
+      } catch (e) {}
+    }, 250);
+  });
+  /* 3D: aç/kapat düğmesi YOK — sahne her zaman canlı olmalı.
+     Ama sayfa asla kilitlenmemeli: 3D, sayfa tıklanabilir hâle geldikten SONRA,
+     boşta kalan anda başlatılır; cihaz kaldırmazsa sessizce durur ve
+     akan fon + animasyonlar kesintisiz devam eder. */
+  var calisti = false, d3 = document.getElementById('durum3D');
+  function d3Durum(y) {
+    if (d3) d3.innerHTML = y
+      ? '<i class="canliNokta"></i>SAHNE AKT\u0130F \u2022 CANLI'
+      : '<i class="canliNokta turuncu"></i>SAHNE KAPALI';
+  }
+  d3Durum(false);
+  function d3Baslat() {
+    if (!window.SA) { d3Durum(false); return false; }
+    var ok = false;
+    try { SA.dene(function (basarili) { d3Durum(basarili); }); } catch (e) { d3Durum(false); }
+    if (!ok) {
+      /* sahne açılamadı: panel yine canlı kalır (akan fon + ızgara + tarama). */
+      if (d3) d3.innerHTML = '<i class="canliNokta turuncu"></i>SAHNE BEKLEMEDE \u2022 PANEL CANLI';
+    }
+    return ok;
+  }
+  /* SAHNE (2D) GÜVENLİDİR: sayfa tıklanabilir olduktan sonra otomatik başlar.
+     WebGL YOK; canvas 2D ile çizilir, donma yapmaz. Yavaşlarsa kaliteyi kendi düşürür. */
+  function sahneOto() {
+    if (!window.SA) return;
+    try { SA.dene(function (ok) { d3Durum(ok); }); }
+    catch (e) { d3Durum(false); }
+  }
+  if (document.readyState === 'complete') setTimeout(sahneOto, 600);
+  else window.addEventListener('load', function () { setTimeout(sahneOto, 600); });
+
+
+  /* ---- CANLI PANEL KATMANI: saat, akan şerit, canlı istatistikler ---- */
+  function iki(n) { return (n < 10 ? '0' : '') + n; }
+  function saatYaz() {
+    var s = document.getElementById('canliSaat');
+    if (!s) return;
+    var t = new Date();
+    s.textContent = iki(t.getHours()) + ':' + iki(t.getMinutes()) + ':' + iki(t.getSeconds());
+  }
+  saatYaz(); setInterval(saatYaz, 1000);
+
+  function sayi(d) {   /* sayaç animasyonu: 0'dan hedefe */
+    var son = parseInt(String(d.getAttribute('data-son') || '0'), 10) || 0, i = 0;
+    var adim = Math.max(1, Math.round(son / 22));
+    d.textContent = '0';
+    var t = setInterval(function () {
+      i += adim;
+      if (i >= son) { i = son; clearInterval(t); }
+      d.textContent = String(i);
+    }, 26);
+  }
+  function canliYaz() {
+    var k = document.getElementById('canliDurum');
+    if (!k || !window.AK) return;
+    var v = AK.veri || {};
+    var xp = v.xp || 0, seri = v.seri || 0;
+    var soru = (window.V && V.bolumler) ? V.bolumler.length : 0;
+    var vade = (v.tekrar && v.tekrar.length) ? v.tekrar.filter(function (t) { return t.ne && t.ne <= Date.now(); }).length : 0;
+    k.innerHTML =
+      '<div class="canliKutu"><div class="etiketMono">TOPLAM XP</div><b data-son="' + xp + '">0</b><span class="etiketMono"> puan</span></div>' +
+      '<div class="canliKutu"><div class="etiketMono">AKTİF SERİ</div><b data-son="' + seri + '">0</b><span class="etiketMono"> oturum</span></div>' +
+      '<div class="canliKutu"><div class="etiketMono">BÖLÜM / KAYIT</div><b data-son="' + (window.V && V.bolumler ? V.bolumler.length : 0) + '">0</b><span class="etiketMono"> bölüm hazır</span></div>' +
+      '<div class="canliKutu"><div class="etiketMono">TEKRAR VAKTİ</div><b data-son="' + vade + '">0</b><span class="etiketMono"> soru bekliyor</span></div>';
+    Array.prototype.forEach.call(k.querySelectorAll('b[data-son]'), sayi);
+  }
+  var akisMetni = 'SİSTEM CANLI · ' + (window.AK ? AK.ALAN.length : 12) + ' ALAN · ' + (window.AK ? AK.MODUL.length : 19) + ' MODÜL · LABORATUVARLAR ÇALIŞIYOR · CTF ARENA AÇIK · ' +
+    'SOC SİMÜLASYONU AKTİF · ADLİ BİLİŞİM MODÜLÜ HAZIR · SERTİFİKA MOTORU BAĞLI · ' +
+    'ÖN SINAV BEKLİYOR · BECERİ AĞACI SENKRON · BULUT GÜVENLİĞİ LABORATUVARI AÇIK · ' +
+    'BLUE TEAM RADARI TARAMADA · TEKRAR MOTORU ÇALIŞIYOR · ';
+  var akis = document.getElementById('canliAkis');
+  if (akis) akis.textContent = akisMetni + akisMetni.replace('SİSTEM CANLI · ', '');
+  if (window.AK) { AK.canliYaz = canliYaz; setTimeout(canliYaz, 120); setInterval(canliYaz, 20000); }
+
+  /* modül değişince sahne hafifçe tepki verir (canlı titreşim) */
+  window.addEventListener('ak-modul', function () { if (window.SA && SA.dokun) SA.dokun(); });
+  if (window.AK && AK.git) {
+    var eskiGit = AK.git;
+    AK.git = function (id) { eskiGit(id); if (window.SA && SA.dokun) SA.dokun(); };
+  }
+
+
+  /* akademiye giriş */
+  function gir(hedef) { window.GIR(hedef); }
+  document.getElementById('girDug').onclick = function () { gir(); };
+  document.getElementById('hizliDug').onclick = function () { gir('onsinav'); };
+  var yd = document.getElementById('yuzenGir');
+  if (yd) yd.onclick = function () { gir(); };
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !document.getElementById('giris').classList.contains('gizli')) gir();
+  });
+  window.GIRIS_AC = function () { document.getElementById('giris').classList.remove('gizli'); };
+
+  /* doğrulama kancası: ?gir=1 */
+  if (location.search.indexOf('gir=1') >= 0) {
+    setTimeout(function () {
+      gir();
+      /* ?modul=oyun gibi ekran seçimi (doğrulama/gösterim için) */
+      var mMod = /[?&]modul=([a-z_]+)/.exec(location.search);
+      if (mMod) setTimeout(function () { try { AK.git(mMod[1]); } catch (e) {} }, 500);
+      setTimeout(function () {
+        try {
+          document.title = 'AKADEMI-ACIK | modul ' + document.querySelectorAll('.akMenuDug').length
+            + ' | soru ' + AK.tumSorular().length + ' | kalem ' + AK.PROJE.length
+            + ' | d3 ' + (window.SA && SA.aktif() ? 'calisti' : 'kapali');
+        } catch (e) { document.title = 'HATA ' + e.message; }
+      }, 900);
+    }, 700);
+  }
+})();
+</script>
+</body>
+</html>

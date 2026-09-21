@@ -1,0 +1,165 @@
+ÜSTAD SİBER AKADEMİ — 144 KALEM TAKİP DEFTERİ
+Site: C:\Users\kenan\OneDrive\Desktop\USTAD-AKADEMI-SITESI\  ·  Sürüm v1.0.0
+Kaynak: USTAD_SIBER_AKADEMI_Tam_Proje_Master_Listesi.docx (141 madde + slogan + felsefe + yolculuk)
+
+DURUM:  ✔ YAPILDI = 127 kalem + 18 EKSTRA (liste dışı görsel/teknik)   ·   ⏳ BEKLEYEN = 21 (sunucu 15 · Kali 2 · karar 4)
+SON İŞ (22.09.2026): Soru bankası 882 → 1000 ✔ → **1506 ✔** (kategori boşlukları dolduruldu: 46 bölümün hepsinde soru var, 100 kategori, boş alan 0)
+
+====================================================================================================
+BÖLÜM A — BU MAKİNEDE YAPILDI (çalışıyor, tarayıcıda denendi)
+====================================================================================================
+  1) ✔ GitHub proje yapısı                        README/MIMARI/CHANGELOG/ROADMAP yazıldı; klasör düzeni hazır (git başlatma sırada)
+  2) ✔ Modüler mimari                             19 modül, 1 dosya = 1 modül; yeni modül eklemek tek satır
+  3) ✔ Ana sayfa                                  'Görev brifingi' açılış ekranı
+  4) ✔ Dark/Light                                 7 tema düğmesi (zümrüt varsayılan) + yüksek karşıtlık
+  5) ✔ Responsive                                 esnek ızgara + mobil eşikler
+  7) ✔ Profil/dashboard                           Siber Kimlik + karne + komuta katı göstergesi
+  8) ✔ Sinematik giriş                            Madalyon + 3D sahne + brifing
+  9) ✔ Hedef + seviye                             Görev Merkezi'nde 8 hedef, seviyeyi ön sınav belirler
+ 10) ✔ Neden/Ne öğreneceksin                      Açılış ekranında iki bölüm
+ 11) ✔ Rozet/lab/CTF/sertifika önizleme           Açılış ekranında 4 kart
+ 12) ✔ Siber Kimlik Kartı                         SB-YYYY-NNN + doğrulama kodu + PNG/yazdır
+ 13) ✔ Welcome Mission                            3 adım + 100 XP + rozet
+ 14) ✔ Seviye belirleme sınavı                    Ön sınav modülü
+ 15) ✔ Soru bankası                               1000 → 1155 → **1506 SORU ✔** (22.09.2026) · 100 kategori · 46 bölümün HEPSİNDE soru var (sorusuz bölüm: 0) · 12 ALANIN HEPSİ soru buluyor (boş alan: 0)
+ 15b)✔ Alan sınavı boşluğu GİDERİLDİ              8 alanın sınavı boştu (network·python·web·blueteam·adli·osint·ai·kariyer) → 195 yeni soru + 2 yeni bölüm (PYTHON, AI GÜVENLİĞİ)
+ 16) ✔ Soru metadata                              kategori/konu/zorluk/beceri etiketleri
+ 17) ✔ Seviyeler                                  kolay/orta/zor/uzman
+ 18) ✔ Adaptif seçim                              adaptif sınav motoru
+ 19) ✔ Değerlendirme + analiz                     kategori bazlı analiz, karne
+ 20) ✔ AI seviye analizi                          kural motoru: seviye + eksik çıkarımı
+ 21) ✔ Skill Tree / bilgi haritası                Beceri Ağacı + radar
+ 22) ✔ Kişisel yol haritası                       haftalık plan (AI Öğretmen)
+ 23) ✔ 12 eğitim alanı                            AK.ALAN: 12 alan
+ 24) ✔ Ders yönetimi + quiz                       ders listesi + ders içi quiz
+ 24b)✔ MÜFREDAT MODÜLÜ (yeni)                     12 alan × 4 seviye = 48 blok · 252 hafta · hedef + konular + uygulama + proje + ölçme; ilerleme kaydı, XP, sınav/lab köprüsü
+ 25) ✔ Adaptif sınav motoru                       Sınav Merkezi
+ 26) ✔ Bana Neden?                                yanlış/doğru açıklaması
+ 27) ✔ Eksik konu + hatırlatma                    zayıf alan analizi + vadeli tekrar
+ 28) ✔ Kaldığı yerden devam                       sonModul kaydı
+ 29) ✔ Çalışma planı                              günlük/haftalık tablo
+ 30) ✔ Bugünün görevi / nerede kaldım             Görev Merkezi + beyin
+ 31) ✔ Kişiselleştirilmiş mesaj                   mentor tavsiyesi, tekrar engelleme
+ 32) ✔ Yapıcı başarısızlık mesajı                 'tekrar gerek' + yol gösterir
+ 33) ✔ Oyunlaştırma                               XP, puan, seri, seviye, rozet, ipucu
+ 34) ✔ MİNİ OYUNLAR (8 → 14 OYUN)                 Ağ/SOC/Linux/Web/Kripto/Adli + Parola Gücü · Oltalama Avı · Log Avı · Hash Tanıma · Olay Sırası · Araç Eşleştirme · soru havuzu 215 ✔ (22.09.2026)
+ 36) ✔ 6 laboratuvar                              senaryo tabanlı (gerçek makine: Kali)
+ 37) ✔ CTF Arena                                  10 görev + puan (canlı hedef: Kali)
+ 38) ✔ SOC simülasyonu                            alarm + olay müdahale sırası
+ 39) ✔ Vaka dosyaları                             4 vaka + olay hikâyeleri
+ 40) ✔ Karar ağaçları                             yanlış kararın nedeni açıklanır
+ 41) ✔ AI öğretmen                                kütüphane aramalı kural motoru
+ 42) ✔ AI koç + sesli öğretmen                    Türkçe sesli okuma
+ 43) ✔ Siber güvenlik radarı                      radar görselleştirme
+ 44) ✔ Analitik dashboard                         karne + grafik
+ 45) ✔ Beceri açığı analizi                       güçlü/zayıf alan
+ 46) ✔ Spaced repetition                          1-3-7-16-35-75 gün
+ 47) ✔ Yeniden test + alternatif soru             tekrar motoru
+ 48) ✔ Milestone/avatar/başarı merkezi            avatar seçimi + kilometre taşları
+ 49) ✔ Rozet + sıralama                           rozetler + cihaz içi rekor tablosu
+ 50) ✔ Siber Dünya Haritası 1.0 + 2.0             canvas ada haritası 2.0
+ 51) ✔ Yolculuk günlüğü                           kronolojik kayıt
+ 52) ✔ Bölüm + genel final                        final sınavları (%70)
+ 53) ✔ Teori+pratik+senaryo                       üçü birlikte değerlendirilir
+ 54) ✔ Sertifika uygunluk                         şart kontrolü
+ 55) ✔ 11 sertifika tasarımı                      sertifika motoru + tasarım listesi
+ 56) ✔ Sertifika içeriği                          ad/program/skor/tarih/numara/doğrulama kodu
+ 58) ✔ Dijital kasa + transkript                  Dijital Kasa modülü
+ 59) ✔ PDF/yazdır/paylaş                          yazdır + PNG/PDF
+ 60) ✔ Profil + Cyber Portfolio                   Kariyer & Portföy
+ 61) ✔ Başarıları portföye ekle                   otomatik toplanıyor
+ 62) ✔ CV + AI CV analizi                         otomatik CV + analiz düğmesi
+ 63) ✔ LinkedIn/paylaşım                          paylaşım metni + LinkedIn aç
+ 64) ✔ Kariyer simülatörü                         uyum analizi
+ 65) ✔ 7 kariyer yolu                             SOC/Blue/Network/Adli/Bulut/AI/Sızma
+ 66) ✔ Mülakat simülatörü                         8 teknik soru
+ 67) ✔ Proje görev merkezi                        10 proje
+ 68) ✔ Seviyeye göre proje önerisi                seviye etiketli projeler
+ 69) ✔ Siber Proje Sergisi                        tamamlananlar portföye
+ 75) ✔ Sezon sistemi                              3 aylık sezon + sezon XP
+ 76) ✔ Gizli görevler                             5 gizli görev, koşula bağlı
+ 77) ✔ Escape Room + Dedektif                     10 oda + 3 kanıtlı vaka (15 soru) ✔ (22.09.2026)
+ 78) ✔ Adli bilişim laboratuvarı                  kanıt/hash/zaman çizelgesi
+ 80) ✔ Kod inceleme laboratuvarı                  5 kod parçası zafiyet analizi
+ 81) ✔ Mezuniyet + mezun profili                  şart kontrolü + kayıt
+ 86) ✔ Arama/filtre/bildirim                      arama + bildirim şeridi
+ 87) ✔ TR/EN dil                                  menü ve başlıklar İngilizceye çevrilir
+ 88) ✔ PWA                                        manifest + service worker (çevrimdışı, telefona kurulur)
+ 92) ✔ Testler                                    18 modül tarayıcıda tek tek denendi
+ 93) ✔ Gerçek veri akışı                          tüm modüller gerçek ilerleme verisini kullanır
+ 94) ✔ Genişletilebilir mimari                    modül eklentisi tek dosya
+ 95) ✔ Dokümantasyon                              README + MIMARI
+ 96) ✔ Versioning/Changelog/Roadmap               CHANGELOG.md + ROADMAP.md
+ 97) ✔ Kullanıcı yolculuğu testi                  kimlik → hedef → ön sınav → ders → lab → sınav → sertifika akışı
+ 98) ✔ Production temizlik                        test dosyaları ayrı tutuldu, yayın listesi hazır
+ 99) ✔ AI Siber Mentor                            gerçek veriye dayalı tavsiye
+100) ✔ Mentor soruları                            bugün ne öğren / neden yanlış / eksiğim nerede
+101) ✔ Ana komuta merkezi                         akademi kabuğu + menü + karne
+102) ✔ Modülleri bağla                            menü, XP, milestone, görev, portföy hepsi bağlı
+103) ✔ AI Akademi Beyni                           çevrimdışı kural motoru
+104) ✔ Tek öğrenme profili                        AK.veri tek depo
+105) ✔ Seviye güncelleme                          her sınav sonrası
+106) ✔ Eksik analizi                              zayıf alan listesi
+107) ✔ Ders önerisi                               zayıf alana göre ders/plan
+108) ✔ Tekrar zamanı                              spaced repetition takvimi
+109) ✔ Sonraki adım                               Görev Merkezi
+110) ✔ Kariyer karşılaştırma                      7 yol uyum yüzdesi
+111) ✔ Merkezi motor                              beyin + görev + plan
+112) ✔ Kayıttan mezuniyete takip                  milestone zinciri
+113) ✔ Kilometre taşları                          otomatik kayıt
+114) ✔ Siber Profilin Hazır                       harita modülünde
+115) ✔ Başlangıç vs mevcut puan                   karşılaştırma kartı
+116) ✔ Geçmiş vs mevcut seviye                    seviye karşılaştırma
+117) ✔ Gelişim grafiği                            son 14 sınav grafiği
+118) ✔ Güçlü/geliştirilecek alan                  sürekli güncellenir
+119) ✔ Arşiv                                      JSON yedek al/yükle + yazdır
+120) ✔ Felsefe                                    açılışta ve profilde
+121) ✔ Gelişim mesajları                          kişisel cümleler
+122) ✔ Ekosistem tasarımı                         tek site, 18 modül
+123) ✔ Veri alışverişi                            modüller ortak depoyu kullanır
+124) ✔ Yasal/izole ortam                          senaryo tabanlı, gerçek saldırı yok
+125) ✔ Güvenlik/gizlilik                          veri cihazda, anahtar gömülmez
+126) ✔ Modül testi                                18/18 açıldı
+128) ✔ Mobil/masaüstü testi                       responsive + PWA
+129) ✔ Erişilebilirlik                            yazı boyutu + yüksek karşıtlık
+130) ✔ Kod temizliği                              ortak yardımcılar, tekrarsız
+131) ✔ Hata düzeltme                              geç çizim + depo anahtarı düzeltmesi
+132) ✔ Dokümantasyon tamam                        MIMARI.md
+133) ✔ README                                     yazıldı
+134) ✔ Proje yapısı                               klasör düzeni düzenli
+135) ✔ Sürüm                                      v1.0.0
+136) ✔ Changelog/Roadmap                          güncel
+137) ✔ Son kontrol                                tarayıcıda 18 modül denendi
+138) ✔ İlk çalışan sürüm                          HAZIR (bu klasör)
+139) ✔ Genişletilebilirlik                        yeni modül kolay
+140) ✔ Uzun vadeli proje                          roadmap hazır
+141) ✔ Nihai hedef                                ekosistem kuruldu
+142) ✔ Slogan                                     açılış ekranında
+143) ✔ Felsefe                                    açılış + profil
+144) ✔ Son kullanıcı yolculuğu                    17 adım modüllere karşılık geliyor
+
+====================================================================================================
+BÖLÜM B — BEKLEYENLER (Kali / sunucu / karar) — ayrıca KALI-VE-SUNUCU-ISLERI.txt
+====================================================================================================
+[SUNUCU]   6) Kayıt/giriş/şifre sıfırlama/e-posta doğrulama
+[SUNUCU]  57) QR kodlu online sertifika doğrulama
+[SUNUCU]  70) Canlı Eğitim Odası
+[SUNUCU]  71) Canlı ders açma/katılma/mini sınav
+[SUNUCU]  72) Öğrenci-Mentor sistemi
+[SUNUCU]  73) Takım görevleri
+[SUNUCU]  74) Siber turnuvalar + canlı skor
+[SUNUCU]  79) Haber lab. (otomatik RSS çekme kısmı)
+[SUNUCU]  82) Mezunlar Ağı
+[SUNUCU]  83) Eğitmen paneli + analitik
+[SUNUCU]  84) Yönetici paneli
+[SUNUCU]  85) İçerik/öğrenci/kurs yönetim sistemleri
+[SUNUCU]  89) Authentication + rol yetkisi + 2FA
+[SUNUCU]  90) Rate limit/session/parola güvenliği
+[SUNUCU]  91) Audit log + backup + veri bütünlüğü
+[KALİ  ]  35) Gerçek izole sanal terminal/sandbox
+[KALİ  ] 127) Sızma testleri (kendi sistemimiz, yasal)
+[KARAR ]   -  Giriş kapısı şifresi (Kenan belirleyecek)
+[KARAR ]   -  AI modu: çevrimdışı kural motoru (hazır) / API anahtarı / Kali yerel model
+[KARAR ]   -  Çok kullanıcılı sürüm: cPanel MySQL mi, VPS mi?
+[KARAR ]   -  Yayın yeri: ustadcyber.com.tr alt klasörü mü, yeni alan adı mı?
+

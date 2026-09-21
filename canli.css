@@ -1,0 +1,199 @@
+/* ==========================================================================
+   ÜSTAD AKADEMİ — CANLILIK KATMANI (canli.css)
+   Panel "gerçekten çalışıyor" hissi versin diye: akan aurora fonu, tarama
+   çizgisi, nabız atan durum ışıkları, kayan şerit, animasyonlu çubuklar,
+   kart girişleri ve neon vurgular. Aç/kapat düğmesi yok — hepsi sürekli canlı.
+   ========================================================================== */
+
+/* ------------------------------ akan fon --------------------------------- */
+#canliFon {
+  position: fixed; inset: -10%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(46% 40% at 18% 22%, rgba(46,230,168,.30), transparent 60%),
+    radial-gradient(40% 36% at 82% 26%, rgba(201,139,58,.26), transparent 62%),
+    radial-gradient(50% 46% at 50% 92%, rgba(46,230,168,.20), transparent 62%),
+    radial-gradient(34% 30% at 68% 68%, rgba(159,232,255,.14), transparent 60%);
+  animation: auroraKay 26s ease-in-out infinite alternate;
+}
+#sahneTuval { z-index: 5; }
+@keyframes auroraKay {
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); }
+  50%  { transform: translate3d(2%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.03); }
+}
+
+/* ızgara + tarama çizgisi (komuta ekranı hissi) */
+#canliIzgara {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: .5;
+  background-image:
+    linear-gradient(rgba(46,230,168,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46,230,168,.055) 1px, transparent 1px);
+  background-size: 46px 46px, 46px 46px;
+}
+@keyframes izgaraKay { from { background-position: 0 0, 0 0; } to { background-position: 0 46px, 46px 0; } }
+#canliTarama {
+  position: fixed; left: 0; right: 0; top: 0; height: 130px; z-index: 3; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(46,230,168,.10), transparent);
+  animation: taramaIn 8s linear infinite;
+}
+@keyframes taramaIn { 0% { transform: translateY(-140px); } 100% { transform: translateY(calc(100vh + 140px)); } }
+
+/* ------------------------- canlı durum göstergeleri ---------------------- */
+.canliNokta {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #2ee6a8; box-shadow: 0 0 0 0 rgba(46,230,168,.7);
+  animation: nabiz 1.8s ease-out infinite; vertical-align: middle; margin-right: 6px;
+}
+@keyframes nabiz {
+  0%   { box-shadow: 0 0 0 0 rgba(46,230,168,.65); }
+  70%  { box-shadow: 0 0 0 10px rgba(46,230,168,0); }
+  100% { box-shadow: 0 0 0 0 rgba(46,230,168,0); }
+}
+.canliNokta.turuncu { background: #ff9f45; animation-name: nabizTuruncu; }
+@keyframes nabizTuruncu {
+  0% { box-shadow: 0 0 0 0 rgba(255,159,69,.6); } 70% { box-shadow: 0 0 0 10px rgba(255,159,69,0); } 100% { box-shadow: 0 0 0 0 rgba(255,159,69,0); }
+}
+.saat { font-family: var(--ze-mono, Consolas, monospace); letter-spacing: .1em; color: #d8fff0; }
+
+/* kayan canlı şerit */
+.canliSerit {
+  position: relative; overflow: hidden; border: 1px solid var(--ze-cizgi, rgba(46,230,168,.28));
+  border-radius: 10px; background: rgba(46,230,168,.05); margin-top: 10px; height: 32px;
+}
+.canliSerit > div {
+  position: absolute; white-space: nowrap; top: 7px; left: 100%;
+  font-family: var(--ze-mono, Consolas, monospace); font-size: 12px; color: #cfeee2;
+  animation: seritKay 34s linear infinite;
+}
+@keyframes seritKay { from { transform: translateX(0); } to { transform: translateX(-190%); } }
+
+/* ------------------------------ kart canlılığı --------------------------- */
+/* NOT: giriş (fade-in) animasyonu BİLİNÇLİ OLARAK yok — panel asla "soluk"
+   görünmesin diye tüm öğeler doğrudan tam parlaklıkta çizilir. Canlılık;
+   üzerinden geçen ışık, nabız, hover ve akan fonla sağlanır. */
+
+/* başlıkta akan ışık */
+.brifBaslik, .akIcerikBaslik h2 { position: relative; }
+.brifBaslik::after {
+  content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%;
+  background: linear-gradient(90deg, transparent, #2ee6a8, #c98b3a, transparent);
+  background-size: 200% 100%; animation: isikKay 5s linear infinite;
+}
+@keyframes isikKay { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* büyük düğme: üzerinden ışık geçer + hafif nabız */
+.buyukDug { position: relative; overflow: hidden; animation: dugNabiz 3.4s ease-in-out infinite; }
+@keyframes dugNabiz { 0%,100% { box-shadow: 0 12px 30px rgba(46,230,168,.25); } 50% { box-shadow: 0 14px 40px rgba(46,230,168,.5); } }
+.buyukDug::after {
+  content: ''; position: absolute; top: 0; left: -70%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
+  animation: parlaKay 3.6s ease-in-out infinite;
+}
+
+/* --------------------- akademi (komuta katı) canlılığı ------------------- */
+.akMenuDug { position: relative; transition: transform .16s ease, background .16s ease, color .16s ease; }
+.akMenuDug:hover { transform: translateX(3px); }
+.akMenuDug.aktif::before {
+  content: ''; position: absolute; left: 0; top: 10%; bottom: 10%; width: 3px;
+  background: var(--ak-renk, #2ee6a8); border-radius: 3px;
+  animation: menuIsik 1.6s ease-in-out infinite alternate;
+}
+@keyframes menuIsik { from { opacity: .5; } to { opacity: 1; box-shadow: 0 0 12px var(--ak-renk, #2ee6a8); } }
+.akMenuDug span, .akMenuDug i { display: inline-block; animation: ikonSalin 4.2s ease-in-out infinite; }
+@keyframes ikonSalin { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+
+.akIcerikBaslik h2 { animation: baslikGel .45s ease; }
+@keyframes baslikGel { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+
+.akKutu { animation: girisYap .45s ease; }
+.akCubuk { position: relative; overflow: hidden; }
+.akCubuk i { position: relative; overflow: hidden; transition: width .8s cubic-bezier(.2,.7,.2,1); }
+.akCubuk i::after {
+  content: ''; position: absolute; inset: 0; left: -40%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+  animation: parlaKay 2.8s linear infinite;
+}
+.akTablo tr { transition: background .16s ease; }
+.akTablo tr:hover { background: rgba(46,230,168,.09); }
+.akBasari { animation: basariNabiz 2.6s ease-in-out infinite; }
+@keyframes basariNabiz { 0%,100% { box-shadow: 0 0 0 0 rgba(46,230,168,.25); } 50% { box-shadow: 0 0 22px rgba(46,230,168,.35); } }
+.akGorevSatir { animation: girisYap .38s ease; }
+
+/* canlı istatistik kutuları */
+.canliKutu {
+  border: 1px solid var(--ze-cizgi, rgba(46,230,168,.28)); border-radius: 12px; padding: 10px 12px;
+  background: linear-gradient(180deg, rgba(46,230,168,.10), rgba(46,230,168,.02));
+  position: relative; overflow: hidden;
+}
+.canliKutu b { font-size: 22px; font-family: var(--ze-mono, Consolas, monospace); color: #d8fff0; }
+.canliKutu::after {
+  content: ''; position: absolute; right: -30%; top: -60%; width: 70%; height: 220%;
+  background: radial-gradient(circle, rgba(46,230,168,.18), transparent 62%);
+  animation: auroraKay 12s ease-in-out infinite alternate;
+}
+
+.yuzenGir {
+  position: fixed; right: 18px; bottom: 18px; z-index: 8; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 20px; border-radius: 999px; border: 1px solid #2ee6a8;
+  background: linear-gradient(180deg, #2ee6a8, #14b98a); color: #06201a;
+  font: 700 15px/1 'Segoe UI', system-ui, sans-serif; letter-spacing: .04em;
+  box-shadow: 0 14px 34px rgba(46,230,168,.42), 0 0 0 6px rgba(46,230,168,.12);
+  animation: dugNabiz 3.2s ease-in-out infinite;
+}
+.yuzenGir:hover { transform: translateY(-2px) scale(1.02); }
+.giris.gizli ~ .yuzenGir, .yuzenGir.gizli { display: none !important; }
+
+/* ------------------------- kısa ekran uyarlaması ------------------------- */
+@media (max-height: 820px) {
+  .giris { padding-top: 8px; }
+  .girisUst { padding: 8px 10px !important; }
+  .brifBaslik { font-size: 30px !important; }
+  #canliDurum { grid-template-columns: repeat(4, minmax(0,1fr)) !important; }
+  .brifMaddeler li { line-height: 1.45 !important; }
+}
+@media (max-height: 700px) {
+  .brifFelsefe, .girisAlt { display: none !important; }
+  .brifBaslik { font-size: 25px !important; }
+  #canliDurum .canliKutu { padding: 7px 9px !important; }
+  #canliDurum .canliKutu b { font-size: 17px !important; }
+  .canliSerit { display: none; }
+}
+
+/* erişilebilirlik: hareket azaltma tercihinde animasyonlar dursun */
+@media (prefers-reduced-motion: reduce) {
+  *, *::after, *::before { animation: none !important; transition: none !important; }
+}
+
+/* GÜVENCE: animasyon herhangi bir sebeple takılırsa içerik yine tam parlak kalır */
+.giris .onizleme, .modulKutu, .akKutu, .akAcKart, .akGorevSatir, .akIcerikBaslik h2 { opacity: 1 !important; }
+
+
+/* ---- BLOOM: sinematik ışık patlaması (Neo QLED HDR hissi) ---- */
+#canliBloom {
+  position: fixed; inset: 0; z-index: 6; pointer-events: none;
+  background: radial-gradient(60% 55% at 50% 42%, rgba(120,255,190,.14), transparent 60%),
+              radial-gradient(40% 40% at 18% 20%, rgba(43,240,160,.12), transparent 60%),
+              radial-gradient(45% 45% at 85% 30%, rgba(224,154,63,.10), transparent 60%);
+  mix-blend-mode: screen;
+  animation: bloomNefes 6s ease-in-out infinite;
+}
+@keyframes bloomNefes {
+  0%,100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+/* ---- YAZI: nabız gibi yumuşak parlama ---- */
+.brifBaslik, .girisAd { animation: yaziNabiz 4s ease-in-out infinite; }
+@keyframes yaziNabiz {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.22); }
+}
+/* ---- kartlar: hafif yükselme + parlaklık ---- */
+.onizleme { transition: transform .25s, box-shadow .25s, border-color .25s; }
+.onizleme:hover { transform: translateY(-4px); box-shadow: 0 0 24px rgba(43,240,160,.35); border-color: rgba(43,240,160,.6); }
+
+
+/* ---- "Hepsi Neo QLED": panel içeriği de canlı/kontrastlı ---- */
+.giris { filter: saturate(1.16) contrast(1.05) brightness(1.03); }
+.akPerde { filter: saturate(1.16) contrast(1.05); }
+

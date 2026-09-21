@@ -1,0 +1,93 @@
+/* ==========================================================================
+   ÜSTAD SİBER AKADEMİ — MÜFREDAT GÖRÜNÜMÜ (akademi-mufredat.css)
+   Neo QLED: derin siyah zemin · saf beyaz yazı · doygun vurgu (--mrenk)
+   ========================================================================== */
+
+.akMufOzet { padding: 12px 14px; }
+.akMufKutular { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; }
+.akMufKutu {
+  background: #000; border: 1px solid #1d2733; border-radius: 10px;
+  padding: 10px 8px; text-align: center;
+}
+.akMufKutu b {
+  display: block; font-size: 24px; line-height: 1.1; color: #fff;
+  text-shadow: 0 0 14px rgba(255, 210, 26, .8), 0 0 30px rgba(255, 210, 26, .35);
+}
+.akMufKutu span { display: block; margin-top: 4px; font-size: 10px; letter-spacing: 1px; color: #fff; opacity: .78; }
+
+.akMufIlerleme { margin-top: 10px; font-size: 13px; color: #fff; }
+.akMufIlerleme b { color: #ffd21a; }
+
+/* ------------------------------- ALAN ŞERİDİ ------------------------------ */
+.akMufSerit { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+.akMufAlan {
+  background: #000; border: 1px solid #1d2733; border-left: 4px solid var(--mrenk, #00eaff);
+  border-radius: 10px; padding: 10px; text-align: left; cursor: pointer;
+  color: #fff; transition: transform .12s, box-shadow .18s, border-color .18s;
+}
+.akMufAlan:hover { transform: translateY(-2px); box-shadow: 0 0 18px color-mix(in srgb, var(--mrenk) 45%, transparent); }
+.akMufAlan.akMufSec {
+  border-color: var(--mrenk); background: color-mix(in srgb, var(--mrenk) 12%, #000);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--mrenk) 55%, transparent);
+}
+.akMufAlanSimge { font-size: 20px; display: block; }
+.akMufAlanAd { display: block; font-size: 12.5px; font-weight: 800; margin-top: 3px; letter-spacing: .3px; }
+.akMufAlanAlt { display: block; font-size: 10.5px; margin-top: 3px; opacity: .8; }
+
+/* ------------------------------- ALAN BAŞLIĞI ----------------------------- */
+.akMufBaslik {
+  display: flex; align-items: center; gap: 10px; margin: 14px 0 10px;
+  padding: 10px 12px; border-radius: 10px; background: #000;
+  border-left: 5px solid var(--mrenk, #ffd21a);
+}
+.akMufBSimge { font-size: 22px; }
+.akMufBAd { font-size: 17px; font-weight: 900; letter-spacing: .5px; color: #fff; }
+.akMufBMeta { margin-left: auto; font-size: 11.5px; color: #fff; opacity: .8; }
+
+/* --------------------------------- SEVİYE -------------------------------- */
+.akMufSeviye {
+  background: #000; border: 1px solid #1d2733; border-radius: 12px;
+  padding: 12px 14px; margin-bottom: 11px; border-top: 3px solid var(--mrenk, #ffd21a);
+}
+.akMufSeviye.akMufBitti { background: color-mix(in srgb, var(--mrenk) 8%, #000); }
+.akMufSevUst { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin-bottom: 8px; }
+.akMufSevNo { font-size: 17px; color: var(--mrenk); }
+.akMufSevAd { font-size: 14px; font-weight: 900; color: #fff; letter-spacing: .4px; }
+.akMufSevSure {
+  font-size: 10.5px; padding: 2px 8px; border-radius: 20px; color: #fff;
+  border: 1px solid var(--mrenk); background: color-mix(in srgb, var(--mrenk) 18%, #000);
+}
+.akMufTik { margin-left: auto; font-size: 11px; font-weight: 800; color: #3affb0; }
+.akMufHedef {
+  font-size: 12.5px; color: #fff; background: #05090d; border-radius: 8px;
+  padding: 7px 10px; margin-bottom: 10px;
+}
+.akMufHedef b { color: var(--mrenk); }
+.akMufIki { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.akMufAltBaslik {
+  font-size: 10px; letter-spacing: 1.4px; font-weight: 800; color: #fff;
+  opacity: .72; margin: 6px 0 5px; border-bottom: 1px solid #1d2733; padding-bottom: 3px;
+}
+.akMufListe { list-style: none; margin: 0; padding: 0; }
+.akMufListe li {
+  font-size: 12.5px; color: #fff; padding: 3px 0 3px 16px; position: relative; line-height: 1.35;
+}
+.akMufListe li::before {
+  content: '\25B8'; position: absolute; left: 2px; color: var(--mrenk); font-size: 11px;
+}
+.akMufUyg li::before { content: '\276F'; }
+.akMufProje, .akMufOlcme {
+  font-size: 12px; color: #fff; background: #05090d; border-radius: 8px;
+  padding: 6px 9px; line-height: 1.35;
+}
+.akMufProje { border-left: 3px solid var(--mrenk); }
+.akMufOlcme { border-left: 3px solid #3affb0; margin-top: 4px; }
+.akMufDugSira { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 11px; }
+.akMufTamDug { border-color: var(--mrenk) !important; font-size: 12px; }
+.akMufSinavDug, .akMufLabDug { font-size: 12px; }
+
+/* --------------------------------- UYUM ---------------------------------- */
+@media (max-width: 900px) {
+  .akMufSerit, .akMufKutular { grid-template-columns: repeat(2, 1fr); }
+  .akMufIki { grid-template-columns: 1fr; }
+}
